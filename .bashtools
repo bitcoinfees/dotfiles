@@ -5,4 +5,6 @@ pycd() {
 alias gd="git diff"
 alias gs="git status ."
 
+alias myip="curl httpbin.org/ip"
+
 export EDITOR="vim"
