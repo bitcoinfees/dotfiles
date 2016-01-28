@@ -2,9 +2,19 @@ pycd() {
     cd `python -c "import $1; import os; print(os.path.dirname($1.__file__))"`
 }
 
+gitsetupremote() {
+    if [[ $# < 2 ]]
+    then
+        echo "setuprepo <name> <remoteip>"; return
+    fi
+    git clone --bare . $1.git && \
+    rsync -aP $1.git git@$2:. && \
+    git remote add origin ssh://git@$2/home/git/$1.git && \
+    rm -rf $1.git && \
+    echo "All OK"
+}
+
 alias gd="git diff"
 alias gs="git status ."
-
-alias myip="curl httpbin.org/ip"
 
 export EDITOR="vim"
