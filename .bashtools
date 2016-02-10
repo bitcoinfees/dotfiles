@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pycd() {
     cd `python -c "import $1; import os; print(os.path.dirname($1.__file__))"`
 }
@@ -16,5 +18,12 @@ gitsetupremote() {
 
 alias gd="git diff"
 alias gs="git status ."
+
+alias grep="grep --color=auto"
+
+if [ `uname` == "Darwin" ]
+then
+    alias ls="ls -G"
+fi
 
 export EDITOR="vim"
