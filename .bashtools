@@ -4,6 +4,11 @@ pycd() {
     cd `python -c "import $1; import os; print(os.path.dirname($1.__file__))"`
 }
 
+# View man page in vim
+vman() {
+    vim -c "Man $*" -c only
+}
+
 gitsetupremote() {
     if [[ $# < 2 ]]
     then
