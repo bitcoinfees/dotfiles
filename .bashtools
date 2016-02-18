@@ -18,7 +18,7 @@ dcleanup(){
 gitsetupremote() {
     if [[ $# < 2 ]]
     then
-        echo "setuprepo <name> <remoteip>"; return
+        echo "gitsetupremote <name> <remoteip>"; return
     fi
     git clone --bare . $1.git && \
     rsync -aP $1.git git@$2:. && \
