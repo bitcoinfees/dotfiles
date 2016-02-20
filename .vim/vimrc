@@ -1,0 +1,114 @@
+"Vundle stuff
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sensible.git'
+Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdtree'
+Plugin 'b4winckler/vim-angry'
+Plugin 'sjl/gundo.vim.git'
+Plugin 'fatih/vim-go.git'
+Plugin 'majutsushi/tagbar'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mattn/emmet-vim.git'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Shougo/neocomplete.vim'
+call vundle#end()
+filetype plugin indent on
+
+syntax on
+set background=dark
+set t_Co=256
+colorscheme alduin
+let g:airline_theme='lucius'
+set number
+set relativenumber
+set mouse=a
+runtime ftplugin/man.vim
+
+"Tabs
+set expandtab
+set tabstop=4
+set shiftwidth=4
+autocmd FileType html
+    \ setlocal shiftwidth=2 |
+    \ setlocal tabstop=2
+
+set undofile
+set undodir=~/.vim/undodir
+set foldmethod=indent
+set foldlevel=99
+set ic
+map <leader>G :GundoToggle<CR>
+map <leader>N :NERDTreeToggle<CR>
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+"Fast tabs
+nmap ˚ gt
+nmap ∆ gT
+nmap † :tabnew<CR>
+nmap ≈ :tabclose<CR>
+
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+"This stops autocomplete from opening a new window
+set completeopt-=preview
+"autocmd FileType python setlocal completeopt-=preview
+"autocmd FileType pyrex setlocal completeopt-=preview
+
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#completions_command = ""
+"1 is for inline, 2 is for command bar (buggy)
+let g:jedi#show_call_signatures = "1"
+let g:jedi#documentation_command = "<leader>K"
+
+"ctrlP
+nmap <leader>b :CtrlPBuffer<CR>
+
+"Tagbar
+nmap <leader>T :TagbarToggle<CR>
+
+"We already have vim-airline
+set noshowmode
+
+"Allow/detect triple quotes
+autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
+autocmd FileType pyrex let b:delimitMate_nesting_quotes = ['"']
+
+" Golang
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+au FileType go nmap <leader>dt <Plug>(go-def-tab)
+
+" Speeds up Golang syntax highlighting, for some reason
+set nocursorline
+set synmaxcol=128
+syntax sync minlines=256
+set nocursorcolumn
+set re=1
+
+"NeoComplete
+let g:neocomplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
