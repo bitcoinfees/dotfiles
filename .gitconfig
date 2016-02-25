@@ -1,0 +1,7 @@
+[user]
+	name = bitcoinfees
+	email = bitcoinfees@gmail.com
+[core]
+	editor = vim
+[push]
+	default = simple
