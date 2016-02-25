@@ -13,10 +13,16 @@ else
     mkdir ~/.vim/undodir
 fi
 
+# Check if tmux exists
+if ! which tmux > /dev/null
+then
+    echo "You should install tmux."
+fi
+
 # Check if vim has +lua, needed for neocomplete
 if ! vim --version | grep " +lua " > /dev/null
 then
-    echo "vim needs +lua, use vim-nox for linux or brew install --with-lua for OS X."
+    echo "Vim needs +lua, use vim-nox for linux or brew install --with-lua for OS X."
 else
     vim +PluginInstall +qa
 fi
