@@ -32,6 +32,7 @@ set number
 set relativenumber
 set showcmd
 set mouse=a
+set shell=bash\ -l
 runtime ftplugin/man.vim
 
 "Tabs
@@ -99,6 +100,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_autosave = 1
+"let g:go_fmt_command = "goimports"
 au FileType go nmap <leader>dt <Plug>(go-def-tab)
 "Always push quickfix to bottom
 autocmd FileType qf wincmd J
@@ -112,11 +114,27 @@ set re=1
 
 "NeoComplete
 let g:neocomplete#enable_at_startup = 1
-"let g:neocomplete#disable_auto_complete = 1
-"let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" Recommended key-mappings.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+"let g:neocomplete#disable_auto_complete = 1
+"let g:neocomplete#enable_auto_select = 1
