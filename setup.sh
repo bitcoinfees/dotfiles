@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ln -s $PWD/.bashtools $HOME/.bashtools
 ln -s $PWD/.inputrc $HOME/.inputrc
 ln -s $PWD/.tmux.conf $HOME/.tmux.conf
@@ -25,4 +27,28 @@ then
     echo "Vim needs +lua, use vim-nox for linux or brew install --with-lua for OS X."
 else
     vim +PluginInstall +qa
+fi
+
+# Fish!
+if ! which fish > /dev/null
+then
+    echo "You need to install fish."
+else
+    FISHFILE=$(which fish)
+    if ! grep fish /etc/shells
+    then
+        echo "Adding fish to /etc/shells"
+        sudo echo $FISHFILE >> /etc/shells
+    fi
+    if ! [ $SHELL == $FISHFILE ]
+    then
+        chsh -s $FISHFILE
+    fi
+fi
+
+if [ -d $HOME/.config/fish ]
+then
+    echo "$HOME/.config/fish already exists."
+else
+    ln -s $PWD/fish $HOME/.config/fish
 fi
