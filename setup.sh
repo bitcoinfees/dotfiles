@@ -39,6 +39,8 @@ else
     then
         echo "Adding fish to /etc/shells"
         sudo echo $FISHFILE >> /etc/shells
+    else
+        echo "Fish found in /etc/shells"
     fi
     if ! [ $SHELL == $FISHFILE ]
     then
