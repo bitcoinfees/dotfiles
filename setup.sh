@@ -48,4 +48,4 @@ else
     fi
 fi
 
-ln -s -F $PWD/fish $HOME/.config/fish
+ln -s -F $PWD/fish $HOME/.config/
