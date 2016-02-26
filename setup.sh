@@ -42,15 +42,10 @@ else
     else
         echo "Fish found in /etc/shells"
     fi
-    if ! [ $SHELL == $FISHFILE ]
+    if ! [ $SHELL = $FISHFILE ]
     then
         chsh -s $FISHFILE
     fi
 fi
 
-if [ -d $HOME/.config/fish ]
-then
-    echo "$HOME/.config/fish already exists."
-else
-    ln -s $PWD/fish $HOME/.config/fish
-fi
+ln -s -F $PWD/fish $HOME/.config/fish
