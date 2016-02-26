@@ -7,7 +7,7 @@ function fish_mode_prompt --description 'Displays the current mode'
       case insert
         echo '>'
       case visual
-        set_color --bold magenta
+        set_color magenta
         echo '|'
     end
   end
