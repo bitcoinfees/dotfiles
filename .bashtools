@@ -36,7 +36,7 @@ alias gs="git status ."
 
 alias grep="grep --color=auto"
 
-if [ `uname` == "Darwin" ]
+if [ `uname` = "Darwin" ]
 then
     alias ls="ls -G"
 fi
