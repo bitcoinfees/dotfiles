@@ -48,4 +48,9 @@ else
     fi
 fi
 
-ln -s -F $PWD/fish $HOME/.config/
+if [ -d $HOME/.config/fish ]
+then
+    echo "Fish dir already exists."
+else
+    ln -s $PWD/fish $HOME/.config/fish
+fi
