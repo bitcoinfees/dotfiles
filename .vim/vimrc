@@ -32,6 +32,7 @@ set number
 set relativenumber
 set showcmd
 set mouse=a
+set shell=/bin/sh
 runtime ftplugin/man.vim
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
