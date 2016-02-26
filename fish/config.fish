@@ -32,4 +32,4 @@ function gengotags
     gotags -R . > tags
 end
 
-source $HOME/.config/fish/extras.fish
+source $HOME/.config/fish/local.fish
