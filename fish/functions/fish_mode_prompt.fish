@@ -10,6 +10,5 @@ function fish_mode_prompt --description 'Displays the current mode'
         set_color --bold magenta
         echo '|'
     end
-    echo -n ' '
   end
 end
