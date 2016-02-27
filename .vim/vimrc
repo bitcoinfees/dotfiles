@@ -70,7 +70,7 @@ map <c-h> <c-w>h
 "Fast tabs
 nmap <M-K> :tabnext<CR>
 nmap <M-J> :tabprevious<CR>
-nmap <M-T> :tabnew<CR>
+nmap <M-T> :tabnew %<CR>
 nmap <M-X> :tabclose<CR>
 
 set backupdir=~/.vim/backup
