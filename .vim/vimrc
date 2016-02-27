@@ -19,6 +19,8 @@ Plugin 'mattn/emmet-vim.git'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-fugitive'
 Plugin 'Shougo/neocomplete.vim'
 call vundle#end()
 filetype plugin indent on
