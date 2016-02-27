@@ -36,9 +36,12 @@ alias gs="git status ."
 
 alias grep="grep --color=auto"
 
-if [ `uname` = "Darwin" ]
-then
+if [ `uname` = "Darwin" ]; then
     alias ls="ls -G"
+elif [ `uname` = "Linux " ]; then
+    alias ls="ls --color=auto"
 fi
+
+alias ll="ls -al"
 
 export EDITOR="vim"
