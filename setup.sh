@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ln -s $PWD/bashtools $HOME/.bashtools
 ln -s $PWD/inputrc $HOME/.inputrc
@@ -10,7 +10,7 @@ then
     echo "~/.vim already exists."
 else
     ln -s $PWD/vim $HOME/.vim
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
     mkdir ~/.vim/backup
     mkdir ~/.vim/undodir
 fi
