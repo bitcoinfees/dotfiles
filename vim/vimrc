@@ -35,7 +35,7 @@ set number
 set relativenumber
 set showcmd
 set mouse=a
-set shell=bash\ -l
+set shell=/bin/sh
 runtime ftplugin/man.vim
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
@@ -151,3 +151,5 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 "let g:neocomplete#disable_auto_complete = 1
 "let g:neocomplete#enable_auto_select = 1
+
+set shell=fish\ -l
