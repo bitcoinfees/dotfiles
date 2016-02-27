@@ -35,7 +35,7 @@ set number
 set relativenumber
 set showcmd
 set mouse=a
-set shell=/bin/sh
+set shell=bash\ -l
 runtime ftplugin/man.vim
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
@@ -94,6 +94,7 @@ let g:jedi#documentation_command = "<leader>K"
 let g:ctrlp_extensions = ['tag']
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>t :CtrlPTag<CR>
+let g:ctrlp_working_path_mode = 0
 
 "Tagbar
 nmap <leader>T :TagbarToggle<CR>
