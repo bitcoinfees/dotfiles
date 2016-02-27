@@ -22,6 +22,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'dag/vim-fish'
 call vundle#end()
 filetype plugin indent on
 
