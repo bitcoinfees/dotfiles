@@ -26,7 +26,7 @@ if ! vim --version | grep " +lua " > /dev/null
 then
     echo "Vim needs +lua, use vim-nox for linux or brew install --with-lua for OS X."
 else
-    vim +PluginInstall +qa
+    vim "+call FishPluginInstall()" +qa
 fi
 
 # Fish!

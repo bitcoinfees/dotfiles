@@ -1,4 +1,3 @@
-fish_vi_mode
 set fish_greeting ""
 set -x EDITOR vim
 

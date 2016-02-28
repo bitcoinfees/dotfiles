@@ -1,3 +1,5 @@
+set shell=/bin/sh
+
 "Vundle stuff
 set nocompatible
 filetype off
@@ -19,7 +21,6 @@ Plugin 'mattn/emmet-vim.git'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'dag/vim-fish'
@@ -35,7 +36,6 @@ set number
 set relativenumber
 set showcmd
 set mouse=a
-set shell=/bin/sh
 runtime ftplugin/man.vim
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
@@ -95,6 +95,7 @@ let g:ctrlp_extensions = ['tag']
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>t :CtrlPTag<CR>
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_switch_buffer = 0
 
 "Tagbar
 nmap <leader>T :TagbarToggle<CR>
@@ -153,3 +154,21 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "let g:neocomplete#enable_auto_select = 1
 
 set shell=fish\ -l
+
+function FishPluginInstall()
+    :set shell=/bin/sh
+    :PluginInstall
+    :set shell=fish\ -l
+endfunction
+
+function FishPluginUpdate()
+    :set shell=/bin/sh
+    :PluginUpdate
+    :set shell=fish\ -l
+endfunction
+
+function FishPluginClean()
+    :set shell=/bin/sh
+    :PluginClean
+    :set shell=fish\ -l
+endfunction
