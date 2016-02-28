@@ -1,5 +1,6 @@
 set fish_greeting ""
 set -x EDITOR vim
+set -x FISH_HOME $HOME/.config/fish
 
 function gs
     git status $argv
@@ -31,4 +32,4 @@ function gengotags
     gotags -R . > tags
 end
 
-source $HOME/.config/fish/local.fish
+source $FISH_HOME/local.fish
