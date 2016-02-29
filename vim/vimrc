@@ -153,22 +153,22 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "let g:neocomplete#disable_auto_complete = 1
 "let g:neocomplete#enable_auto_select = 1
 
-set shell=fish\ -l
+set shell=$SHELL\ -l
 
 function FishPluginInstall()
     :set shell=/bin/sh
     :PluginInstall
-    :set shell=fish\ -l
+    :set shell=$SHELL\ -l
 endfunction
 
 function FishPluginUpdate()
     :set shell=/bin/sh
     :PluginUpdate
-    :set shell=fish\ -l
+    :set shell=$SHELL\ -l
 endfunction
 
 function FishPluginClean()
     :set shell=/bin/sh
     :PluginClean
-    :set shell=fish\ -l
+    :set shell=$SHELL\ -l
 endfunction

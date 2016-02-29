@@ -5,8 +5,7 @@ ln -s $PWD/inputrc $HOME/.inputrc
 ln -s $PWD/tmux.conf $HOME/.tmux.conf
 ln -s $PWD/gitconfig $HOME/.gitconfig
 
-if [ -d $HOME/.vim ]
-then
+if [ -d $HOME/.vim ]; then
     echo "~/.vim already exists."
 else
     ln -s $PWD/vim $HOME/.vim
@@ -16,41 +15,39 @@ else
 fi
 
 # Check if tmux exists
-if ! which tmux > /dev/null
-then
+if ! which tmux > /dev/null; then
     echo "You should install tmux."
 fi
 
 # Check if vim has +lua, needed for neocomplete
-if ! vim --version | grep " +lua" > /dev/null
-then
+if ! vim --version | grep " +lua" > /dev/null; then
     echo "Vim needs +lua, use vim-nox for linux or brew install --with-lua for OS X."
 else
     vim "+call FishPluginInstall()" +qa
 fi
 
 # Fish!
-if ! which fish > /dev/null
-then
-    echo "You need to install fish."
+if ! which fish > /dev/null; then
+    echo "Fish not installed; skipping"
 else
-    FISHFILE=$(which fish)
-    if ! grep fish /etc/shells
-    then
+    FISHBIN=$(which fish)
+    if ! grep fish /etc/shells; then
         echo "Adding fish to /etc/shells"
-        sudo echo $FISHFILE >> /etc/shells
+        sudo echo $FISHBIN >> /etc/shells
     else
         echo "Fish found in /etc/shells"
     fi
-    if ! [ $SHELL = $FISHFILE ]
-    then
-        chsh -s $FISHFILE
-    fi
-fi
 
-if [ -d $HOME/.config/fish ]
-then
-    echo "Fish dir already exists."
-else
-    ln -s $PWD/fish $HOME/.config/fish
+    if ! [ $SHELL = $FISHBIN ]; then
+        chsh -s $FISHBIN
+    fi
+
+    FISHDIR=$HOME/.config/fish
+    if [ -d $FISHDIR -a ! -L $FISHDIR ]; then
+        echo "Fish dir already exists, moving it to ~/.config/fish.bak"
+        mv $FISHDIR $FISHDIR.bak
+    fi
+    if ! [ -e $FISHDIR ]; then
+        ln -s $PWD/fish $HOME/.config/fish
+    fi
 fi
