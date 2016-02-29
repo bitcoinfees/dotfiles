@@ -22,7 +22,7 @@ then
 fi
 
 # Check if vim has +lua, needed for neocomplete
-if ! vim --version | grep " +lua " > /dev/null
+if ! vim --version | grep " +lua" > /dev/null
 then
     echo "Vim needs +lua, use vim-nox for linux or brew install --with-lua for OS X."
 else
