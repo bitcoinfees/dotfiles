@@ -1,0 +1,3 @@
+[submodule "fish/fishmarks"]
+	path = fish/fishmarks
+	url = https://github.com/techwizrd/fishmarks.git

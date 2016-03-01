@@ -172,3 +172,8 @@ function FishPluginClean()
     :PluginClean
     :set shell=$SHELL\ -l
 endfunction
+
+"FishMarks cd. Usage: :Fcd <mark>
+command -nargs=1 Fcd cd `=system("p <args>")`
+"FishMarks lcd. Usage: :Flcd <mark>
+command -nargs=1 Flcd lcd `=system("p <args>")`

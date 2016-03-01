@@ -32,4 +32,5 @@ function gengotags
     gotags -R . > tags
 end
 
+source $FISH_HOME/fishmarks/marks.fish
 source $FISH_HOME/local.fish
