@@ -11,9 +11,8 @@ function fish_edit_fn --description 'Edit a fish fn.'
     end
     eval $EDITOR $funcfile
 
-    # FIXME: This doesn't work!
     # Remove file if it's empty
-    # if [ (count (xargs < $funcfile)) -eq 0 ]
-    #     rm $funcfile
-    # end
+    if not grep '\S' $funcfile > /dev/null
+        rm $funcfile
+    end
 end
