@@ -142,7 +142,7 @@ function! s:my_cr_function()
   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+imap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -155,25 +155,25 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 set shell=$SHELL\ -l
 
-function FishPluginInstall()
+function! FishPluginInstall()
     :set shell=/bin/sh
     :PluginInstall
     :set shell=$SHELL\ -l
 endfunction
 
-function FishPluginUpdate()
+function! FishPluginUpdate()
     :set shell=/bin/sh
     :PluginUpdate
     :set shell=$SHELL\ -l
 endfunction
 
-function FishPluginClean()
+function! FishPluginClean()
     :set shell=/bin/sh
     :PluginClean
     :set shell=$SHELL\ -l
 endfunction
 
 "FishMarks cd. Usage: :Fcd <mark>
-command -nargs=1 Fcd cd `=system("p <args>")`
+command! -nargs=1 Fcd cd `=system("p <args>")`
 "FishMarks lcd. Usage: :Flcd <mark>
-command -nargs=1 Flcd lcd `=system("p <args>")`
+command! -nargs=1 Flcd lcd `=system("p <args>")`
