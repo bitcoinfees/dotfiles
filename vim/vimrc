@@ -127,6 +127,7 @@ set nocursorcolumn
 set re=1
 
 "NeoComplete
+set shortmess+=c "it's blocking vim-go's function sigs
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
@@ -177,3 +178,5 @@ endfunction
 command! -nargs=1 Fcd cd `=system("p <args>")`
 "FishMarks lcd. Usage: :Flcd <mark>
 command! -nargs=1 Flcd lcd `=system("p <args>")`
+
+command! -nargs=? W write <args> "I'm sick of entering W when i meant to w[rite]
