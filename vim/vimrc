@@ -54,6 +54,8 @@ set shiftwidth=4
 autocmd FileType html
     \ setlocal shiftwidth=2 |
     \ setlocal tabstop=2
+autocmd FileType c
+    \ set noexpandtab
 
 set undofile
 set undodir=~/.vim/undodir
@@ -113,7 +115,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 "let g:go_fmt_command = "goimports"
 au FileType go nmap <leader>dt <Plug>(go-def-tab)
 "Always push quickfix to bottom
