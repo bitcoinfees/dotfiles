@@ -35,7 +35,7 @@ let g:airline_theme='lucius'
 set number
 set relativenumber
 set showcmd
-set mouse=a
+set mouse=n
 runtime ftplugin/man.vim
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
