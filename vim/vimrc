@@ -76,7 +76,7 @@ nmap <M-T> :tabnew %<CR>
 nmap <M-X> :tabclose<CR>
 
 "Buffer switching
-nnoremap <M-P> :b#<CR>
+nnoremap <M-B> :b#<CR>
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
