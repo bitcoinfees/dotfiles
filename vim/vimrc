@@ -162,6 +162,9 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "let g:neocomplete#disable_auto_complete = 1
 "let g:neocomplete#enable_auto_select = 1
 
+"solve os x cron problems
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 set shell=$SHELL\ -l
 
 function! FishPluginInstall()
