@@ -50,4 +50,6 @@ else
     if ! [ -e $FISHDIR ]; then
         ln -s $PWD/fish $HOME/.config/fish
     fi
+
+    git submodule update --init fish/fishmarks
 fi
