@@ -51,5 +51,6 @@ else
         ln -s $PWD/fish $HOME/.config/fish
     fi
 
+    touch fish/local.fish
     git submodule update --init fish/fishmarks
 fi
