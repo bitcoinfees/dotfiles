@@ -39,6 +39,7 @@ else
     fi
 
     if ! [ $SHELL = $FISHBIN ]; then
+        echo "Changing shell to fish, please enter password."
         chsh -s $FISHBIN
     fi
 
