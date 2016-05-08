@@ -4,6 +4,7 @@ ln -s $PWD/bashtools $HOME/.bashtools
 ln -s $PWD/inputrc $HOME/.inputrc
 ln -s $PWD/tmux.conf $HOME/.tmux.conf
 ln -s $PWD/gitconfig $HOME/.gitconfig
+ln -s $PWD/vimrc_private $HOME/.vimrc_private
 
 if [ -d $HOME/.vim ]; then
     echo "~/.vim already exists."
