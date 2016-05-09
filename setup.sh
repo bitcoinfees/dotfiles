@@ -50,6 +50,7 @@ else
         mv $FISHDIR $FISHDIR.bak
     fi
     if ! [ -e $FISHDIR ]; then
+        mkdir $HOME/.config
         ln -s $PWD/fish $HOME/.config/fish
     fi
 

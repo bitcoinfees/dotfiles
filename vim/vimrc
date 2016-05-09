@@ -37,6 +37,7 @@ set relativenumber
 set showcmd
 set mouse=n
 set ttimeoutlen=0 "Stop escape key from triggering meta sequences
+set encoding=utf8
 runtime ftplugin/man.vim
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
