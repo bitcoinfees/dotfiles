@@ -24,7 +24,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'dag/vim-fish'
-Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
 
@@ -80,13 +80,10 @@ nmap <M-X> :tabclose<CR>
 
 "Buffer switching
 nnoremap <M-B> :b#<CR>
-nnoremap <CR> :CtrlPBuffer<CR>
+nnoremap <space> :CtrlPBuffer<CR>
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
-
-"Easymotion
-map <space> <Plug>(easymotion-s)
 
 "This stops autocomplete from opening a new window
 set completeopt-=preview
