@@ -40,6 +40,7 @@ set mouse=n
 set ttimeoutlen=0 "Stop escape key from triggering meta sequences
 set encoding=utf8
 runtime ftplugin/man.vim
+let mapleader = " "
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
 let c='a'
@@ -72,6 +73,9 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
 "Fast tabs
 nmap <M-K> :tabnext<CR>
 nmap <M-J> :tabprevious<CR>
@@ -80,10 +84,6 @@ nmap <M-X> :tabclose<CR>
 
 "Buffer switching
 nnoremap <M-B> :b#<CR>
-nnoremap <space> :CtrlPBuffer<CR>
-
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
 
 "This stops autocomplete from opening a new window
 set completeopt-=preview
