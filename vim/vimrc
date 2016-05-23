@@ -40,7 +40,6 @@ set mouse=n
 set ttimeoutlen=0 "Stop escape key from triggering meta sequences
 set encoding=utf8
 runtime ftplugin/man.vim
-let mapleader = " "
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
 let c='a'
@@ -72,6 +71,7 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+map <leader>m :marks<CR>
 
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -101,7 +101,7 @@ let g:jedi#documentation_command = "<leader>K"
 
 "ctrlP
 let g:ctrlp_extensions = ['tag']
-nmap <leader>b :CtrlPBuffer<CR>
+nmap <space> :CtrlPBuffer<CR>
 nmap <leader>t :CtrlPTag<CR>
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_switch_buffer = 0
