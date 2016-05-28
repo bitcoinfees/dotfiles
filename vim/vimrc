@@ -90,6 +90,9 @@ set completeopt-=preview
 "autocmd FileType python setlocal completeopt-=preview
 "autocmd FileType pyrex setlocal completeopt-=preview
 
+"Remap emmet leader
+let g:user_emmet_leader_key='<C-S>'
+
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
