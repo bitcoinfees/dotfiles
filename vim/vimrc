@@ -76,6 +76,9 @@ map <leader>G :GundoToggle<CR>
 map <leader>N :NERDTreeToggle<CR>
 map <leader>m :marks<CR>
 
+"gundo
+let g:gundo_prefer_python3 = 1
+
 "Buffer switching
 nnoremap <M-B> :b#<CR>
 
