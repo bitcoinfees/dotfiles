@@ -10,7 +10,6 @@ if [ -d $HOME/.vim ]; then
     echo "~/.vim already exists."
 else
     ln -s $PWD/vim $HOME/.vim
-    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
     mkdir ~/.vim/backup
     mkdir ~/.vim/undodir
 fi
@@ -24,7 +23,7 @@ fi
 if ! vim --version | grep " +lua" > /dev/null; then
     echo "Vim needs +lua, use vim-nox for linux or brew install --with-lua for OS X."
 else
-    vim "+call FishPluginInstall()" +qa
+    vim "+PlugInstall" +qa
 fi
 
 # Fish!
@@ -42,6 +41,8 @@ else
     if ! [ $SHELL = $FISHBIN ]; then
         echo "Changing shell to fish, please enter password."
         chsh -s $FISHBIN
+    else
+        echo "Already using Fish."
     fi
 
     FISHDIR=$HOME/.config/fish

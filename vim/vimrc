@@ -1,32 +1,24 @@
-set shell=/bin/sh
-
-"Vundle stuff
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-sensible.git'
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'b4winckler/vim-angry'
-Plugin 'sjl/gundo.vim.git'
-Plugin 'fatih/vim-go.git'
-Plugin 'majutsushi/tagbar'
-Plugin 'Raimondi/delimitMate'
-Plugin 'mattn/emmet-vim.git'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'dag/vim-fish'
-Plugin 'tpope/vim-surround'
-call vundle#end()
-filetype plugin indent on
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'b4winckler/vim-angry'
+Plug 'sjl/gundo.vim'
+Plug 'fatih/vim-go'
+Plug 'Raimondi/delimitMate'
+Plug 'mattn/emmet-vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'nvie/vim-flake8'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'Shougo/neocomplete.vim'
+Plug 'dag/vim-fish'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+call plug#end()
 
 " fix meta-keys which generate <Esc>a .. <Esc>z
 let c='a'
@@ -41,7 +33,6 @@ syntax on
 set background=dark
 set t_Co=256
 colorscheme alduin
-let g:airline_theme='lucius'
 set number
 set relativenumber
 set showcmd
@@ -87,6 +78,10 @@ map <leader>m :marks<CR>
 
 "Buffer switching
 nnoremap <M-B> :b#<CR>
+
+"airline
+let g:airline_theme='lucius'
+let g:airline#extensions#tagbar#enabled = 0
 
 "This stops autocomplete from opening a new window
 set completeopt-=preview
@@ -173,29 +168,11 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "solve os x cron problems
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-set shell=$SHELL\ -l
-
-function! FishPluginInstall()
-    :set shell=/bin/sh
-    :PluginInstall
-    :set shell=$SHELL\ -l
-endfunction
-
-function! FishPluginUpdate()
-    :set shell=/bin/sh
-    :PluginUpdate
-    :set shell=$SHELL\ -l
-endfunction
-
-function! FishPluginClean()
-    :set shell=/bin/sh
-    :PluginClean
-    :set shell=$SHELL\ -l
-endfunction
-
 "FishMarks cd. Usage: :Fcd <mark>
 command! -nargs=1 Fcd cd `=system("p <args>")`
 "FishMarks lcd. Usage: :Flcd <mark>
 command! -nargs=1 Flcd lcd `=system("p <args>")`
 
 command! -nargs=? W write <args> "I'm sick of entering W when i meant to w[rite]
+
+set shell=$SHELL\ -l
