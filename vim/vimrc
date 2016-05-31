@@ -28,6 +28,15 @@ Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
 
+" fix meta-keys which generate <Esc>a .. <Esc>z
+let c='a'
+while c <= 'z'
+  exec "set <M-".toupper(c).">=\e".c
+  exec "imap \e".c." <M-".toupper(c).">"
+  let c = nr2char(1+char2nr(c))
+endw
+set noesckeys
+
 syntax on
 set background=dark
 set t_Co=256
@@ -39,18 +48,24 @@ set showcmd
 set mouse=n
 set ttimeoutlen=0 "Stop escape key from triggering meta sequences
 set encoding=utf8
+set undofile
+set undodir=~/.vim/undodir
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+set foldmethod=indent
+set foldlevel=99
+set ic
+set noshowmode "We already have vim-airline
+
 runtime ftplugin/man.vim
 
-" fix meta-keys which generate <Esc>a .. <Esc>z
-let c='a'
-while c <= 'z'
-  exec "set <M-".toupper(c).">=\e".c
-  exec "imap \e".c." <M-".toupper(c).">"
-  let c = nr2char(1+char2nr(c))
-endw
-set noesckeys
+"Fast tabs
+nmap <M-K> :tabnext<CR>
+nmap <M-J> :tabprevious<CR>
+nmap <M-T> :tabnew %<CR>
+nmap <M-X> :tabclose<CR>
 
-"Tabs
+"Indentation
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -60,27 +75,15 @@ autocmd FileType html
 autocmd FileType c
     \ set noexpandtab
 
-set undofile
-set undodir=~/.vim/undodir
-set foldmethod=indent
-set foldlevel=99
-set ic
-map <leader>G :GundoToggle<CR>
-map <leader>N :NERDTreeToggle<CR>
+"panes
 map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+map <leader>G :GundoToggle<CR>
+map <leader>N :NERDTreeToggle<CR>
 map <leader>m :marks<CR>
-
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-
-"Fast tabs
-nmap <M-K> :tabnext<CR>
-nmap <M-J> :tabprevious<CR>
-nmap <M-T> :tabnew %<CR>
-nmap <M-X> :tabclose<CR>
 
 "Buffer switching
 nnoremap <M-B> :b#<CR>
@@ -111,9 +114,6 @@ let g:ctrlp_switch_buffer = 0
 
 "Tagbar
 nmap <leader>T :TagbarToggle<CR>
-
-"We already have vim-airline
-set noshowmode
 
 "Allow/detect triple quotes
 autocmd FileType python let b:delimitMate_nesting_quotes = ['"']
