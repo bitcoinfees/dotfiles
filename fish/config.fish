@@ -38,6 +38,6 @@ source $FISH_HOME/fishmarks/marks.fish
 source $FISH_HOME/local.fish
 
 function fish_user_key_bindings
-    bind \cn nextd-or-forward-word
-    bind \cp prevd-or-backward-word
+    bind \el nextd-or-forward-word
+    bind \eh prevd-or-backward-word
 end
