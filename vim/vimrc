@@ -65,6 +65,9 @@ autocmd FileType html
     \ setlocal tabstop=2
 autocmd FileType c
     \ set noexpandtab
+autocmd FileType ruby
+    \ setlocal shiftwidth=2 |
+    \ setlocal tabstop=2
 
 "panes
 map <c-j> <c-w>j
